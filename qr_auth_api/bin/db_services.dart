@@ -66,7 +66,8 @@ class Database {
 
     qrSessions.add(QRSession(id: id));
     qrSessionsStore.writeAsString(
-        qrSessions.map((item) => item.toJson()).toList().toString());
+      qrSessions.map((item) => item.toJson()).toList().toString(),
+    );
     return Response.ok('1');
   }
 
@@ -111,7 +112,6 @@ class Database {
         .toList();
     if (matchingSession.isNotEmpty) {
       qrSessions.remove(matchingSession.first);
-
       qrSessions.add(session);
       qrSessionsStore.writeAsString(
           qrSessions.map((item) => item.toJson()).toList().toString());
@@ -141,7 +141,8 @@ class Database {
         .first);
 
     qrSessionsStore.writeAsString(
-        qrSessions.map((item) => item.toJson()).toList().toString());
+      qrSessions.map((item) => item.toJson()).toList().toString(),
+    );
 
     return Response.ok('Deleted session 🗑️');
   }

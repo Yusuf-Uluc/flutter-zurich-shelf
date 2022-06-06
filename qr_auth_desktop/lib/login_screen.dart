@@ -45,14 +45,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           setState(() {
                             authenticated = true;
                           });
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SuccessScreen(),
+                            ),
+                          );
+                          Services.deleteQRSession(id);
                         }
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SuccessScreen(),
-                          ),
-                        );
-                        Services.deleteQRSession(id);
                       },
                     );
                   }
